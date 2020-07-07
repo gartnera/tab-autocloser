@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "tab-autocloser",
+    "description": "tab-autocloser uses rules to automatically close tabs based on their url and/or title",
+    "version": "1.0",
+    "background": {
+        "scripts": [
+            "tab-autoclose.js"
+        ]
+    },
+    "permissions": [
+        "tabs",
+        "storage"
+    ],
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
+    "icons": {
+        "128": "icon128.png"
+    }
+}

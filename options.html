@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 3px;
+        }
+
+        td {
+            min-width: 200px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        table {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            min-width: 30%;
+        }
+
+        body {
+            margin: 20px;
+        }
+
+        #button-box {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin-right: 20px;
+        }
+
+        .delete {
+            font-weight: bold;
+            width: 30px;
+            cursor: pointer;
+        }
+
+        #saved {
+            display: none;
+        }
+
+        p {
+            font-size: 12pt;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>tab-autocloser settings</h1>
+    <p>Each row will be evaluated after the tab has loaded</p>
+    <p>If only a URL is configured, title will be ignored (and vice versa)</p>
+    <p>These are parsed as regex, so you'll need to escape slashes (example: http://agartner.com is escaped to
+        http:\/\/agartner.com)</p>
+    <table id="rule-table">
+        <thead>
+            <th>&nbsp;</th>
+            <th>URL</th>
+            <th>Title</th>
+        </thead>
+        <tbody id="rule-container">
+        </tbody>
+    </table>
+
+    <p id="saved">Saved!</p>
+
+    <div id="button-box">
+        <button id="save">Save</button><button id="reset">Reset</button><button id="new">New</button>
+    </div>
+    <a target="_blank" href="https://icons8.com/icons/set/close-all-tabs">Close All Tabs icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    <script src="options.js"></script>
+
+</body>
+
+</html>
