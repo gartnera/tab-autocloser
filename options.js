@@ -71,8 +71,13 @@ function reset() {
 function load() {
     browser.storage.sync.get("rules", (res) => {
         const { rules } = res;
-        for (const rule of rules) {
-            new_row(rule.url, rule.title);
+        if (rules) {
+            for (const rule of rules) {
+                new_row(rule.url, rule.title);
+            }
+        }
+        if (container.children.length == 0) {
+            new_row();
         }
     });
 }
@@ -80,5 +85,5 @@ function load() {
 load();
 
 document.querySelector('#save').addEventListener('click', save);
-document.querySelector('#new').addEventListener('click', new_row);
+document.querySelector('#new').addEventListener('click', () => new_row());
 document.querySelector('#reset').addEventListener('click', reset);

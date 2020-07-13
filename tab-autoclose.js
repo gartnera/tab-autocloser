@@ -4,6 +4,9 @@ let rules = [];
 
 function update_rules() {
     browser.storage.sync.get("rules", (res) => {
+        if (!res.rules) {
+            return;
+        }
         const newRules = [];
         for (const rule of res.rules) {
             const r = {
