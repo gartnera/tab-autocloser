@@ -9,9 +9,12 @@ function update_rules() {
         }
         const newRules = [];
         for (const rule of res.rules) {
-            const r = {
-                url: new RegExp(rule.url),
-                title: new RegExp(rule.url),
+            const r = {};
+            if (rule.url) {
+                r.url = new RegExp(rule.url);
+            }
+            if (rule.title) {
+                r.title = new RegExp(rule.title);
             }
             newRules.push(r);
         }
@@ -25,7 +28,9 @@ function tab_update_handler(tabId, changeInfo, tab) {
     }
     const { url, title } = tab;
     for (const rule of rules) {
-        if (url.match(rule.url) && title.match(rule.title)) {
+        const urlMatch = (!rule.url || url.match(rule.url));
+        const titleMatch = (!rule.title || url.match(rule.title))
+        if (urlMatch && titleMatch) {
             browser.tabs.remove(tabId);
         }
     }

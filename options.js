@@ -40,13 +40,15 @@ function new_row(url = '', title = '') {
 function parse_rows() {
     const res = [];
     for (const row of container.children) {
-        const [, url, title] = row.children;
+        let [, url, title] = row.children;
+        url = url.textContent.trim();
+        title = title.textContent.trim();
         if (!url && !title) {
             continue;
         }
         res.push({
-            'url': url.innerText,
-            'title': title.innerText,
+            'url': url,
+            'title': title,
         });
     }
     return res;
