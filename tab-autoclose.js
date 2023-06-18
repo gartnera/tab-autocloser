@@ -28,9 +28,9 @@ function tab_update_handler(tabId, changeInfo, tab) {
     }
     const { url, title } = tab;
     for (const rule of rules) {
-        const urlMatch = (!rule.url || url.match(rule.url));
-        const titleMatch = (!rule.title || url.match(rule.title))
-        if (urlMatch && titleMatch) {
+        const urlMatch = (!!rule.url && url.match(rule.url));
+        const titleMatch = (!!rule.title && title.match(rule.title))
+        if (urlMatch || titleMatch) {
             browser.tabs.remove(tabId);
         }
     }
